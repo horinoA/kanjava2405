@@ -12,8 +12,19 @@ public class personaldictInputServiceImpl implements personaldictInputService{
 
     @Override
     public Integer savepersonaldict(personaldictInput personaldictInput) {
-        Long getid = personaldictInputRepository.findBymaxid();
-        personaldictInput savePerson = new personaldictInput(getid, personaldictInput.lastname(), personaldictInput.firstname(), personaldictInput.lastnamekana(), personaldictInput.firstnamekana(), personaldictInput.email(), personaldictInput.contactphone(), personaldictInput.postalcode(), personaldictInput.prefectures(), personaldictInput.address(), personaldictInput.birthdate());
+        Long getid = personaldictInputRepository.getByid();
+        personaldictInput savePerson = new personaldictInput(
+            getid, 
+            personaldictInput.lastname(), 
+            personaldictInput.firstname(), 
+            personaldictInput.lastnamekana(), 
+            personaldictInput.firstnamekana(), 
+            personaldictInput.email(), 
+            personaldictInput.contactphone(), 
+            personaldictInput.postalcode(), 
+            personaldictInput.prefectures(), 
+            personaldictInput.address(), 
+            personaldictInput.birthdate());
         personaldictInputRepository.save(savePerson);
         return 0;
     }

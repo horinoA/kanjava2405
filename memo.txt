@@ -1,0 +1,39 @@
+create table personaldict(
+  id bigint PRIMARY KEY NOT NULL,
+ lastname VARCHAR(30) NOT NULL,
+firstname VARCHAR(25) NOT NULL,
+lastnamekana VARCHAR(60) ,
+firstnamekana VARCHAR(50) ,
+email text,
+contactphone VARCHAR(13),
+postalcode VARCHAR(8),
+prefectures VARCHAR(4),
+address VARCHAR(256),
+birthdate  timestamp with time zone
+)
+
+
+CREATE TABLE registrant (
+    id bigint NOT NULL,
+    email public.email NOT NULL,
+    password character varying(256) NOT NULL
+    roleid integer
+);
+
+CREATE TABLE roles (
+    id integer NOT NULL,
+    rolename character varying(256) NOT NULL
+);
+
+insert into personaldict values(
+id_generator(),
+'原',
+'悠一',
+'はら',
+'ゆういち',
+'yuuichi_hara@example.com',
+'0930-91-8389',
+'800-2779',String 
+'福岡県',
+'福岡市西区福重2-2-15プレミスト209',
+to_timestamp('1930-01-21', 'YYYY-MM-DD'));
